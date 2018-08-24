@@ -1,0 +1,92 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <script src="main.js"></script>
+</head>
+
+<body>
+    
+  <div id="game">
+
+</div>
+
+<script type="text/javascript">
+
+// begin a very big loop
+
+// Var defention 
+  var computerChoices = ["a", "b", "c", "d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+  var w=0;
+  var l=0;
+  var guessleft = 7;
+  var userGuess = "";
+  var level = prompt("how many chances do you want?");
+
+// this variable has to change each reset of the game
+// but is always called see console.log
+var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+
+// begin a very big loop through a function
+// beginn with this because we need a rep 
+// loop and better entery than promt and allerts 
+
+document.onkeyup = function(event) { 
+
+
+// begin loop with chances 
+// including userGuess input
+
+for (i = 0; i < level; i++) {
+     
+    //var userGuess = prompt(" Guess a letter" );
+        
+        var userGuess = event.key;
+        console.log (userGuess + " "+ computerGuess +" " +i)
+        
+    //alert (computerGuess);}
+
+// Now what happens if you guess right 
+// increase w by 1 and set i= to level in order to stop loop
+
+
+if (computerGuess == userGuess)  {  
+   //alert ("you won");
+    w=w+1;
+    break;
+ 
+ 
+ }
+ // now what happens if you guess wrong
+ // contiue the loop
+// here we finish the loop you had all your chances
+}
+
+// now we can say if we reached hear you won or lost 
+//as w was already updated earlie we take only care on l
+
+ if (computerGuess!== userGuess && i == 0) {
+     l=l+1;
+ } 
+     
+  //----
+
+    
+
+var html= " <p>win "+ w + "</p>" + " <p> lose  " +l + "</p>"
+ 
+
+document.getElementById("game").innerHTML=html
+
+}
+</script>
+
+</body>
+
+</html>
+</body>
+</html>
